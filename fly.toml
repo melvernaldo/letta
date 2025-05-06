@@ -9,13 +9,6 @@ primary_region = 'sin'
 [build]
   image = "letta/letta:latest"
 
-[mounts]
-  source = "letta_volume_0"
-  destination = "/data/postgresql"
-  processes = ["disk"] # optional - attach volumes to Machines that belong to one or more process groups
-  initial_size = "20gb" # optional - the size of the volume created on first deploy
-
-
 [http_service]
   internal_port = 8283
   force_https = true
@@ -29,3 +22,8 @@ primary_region = 'sin'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 1024
+
+[[mounts]]
+  source = "letta_volume_0"
+  destination = "/data/postgresql"
+  # initial_size = "20gb" # optional - the size of the volume created on first deploy
